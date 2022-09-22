@@ -76,8 +76,10 @@ public class Letters {
         for (String i : words) {
             if (Pattern.matches("[0-9]+", i)) {
                 ans.integer++;
-                ans.logs += String.format("%h", i) + "\n";
-                System.out.println(String.format("%h", i));
+
+                String format = String.format("%05X", Integer.parseInt(i) & 0xFFFFF);
+                ans.logs += format + "\n";
+                System.out.println(format);
             }
 
         }
